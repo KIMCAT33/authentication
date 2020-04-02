@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-jwt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "aws lambda update-function-code --function-name namyangsu --zip-file fileb://build.zip --publish",
+    "clean": "rm build.zip",
+    "build": "zip -r build.zip node_modules app.js index.js app config routes"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.651.0",
+    "aws-serverless-express": "^3.3.8",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}
