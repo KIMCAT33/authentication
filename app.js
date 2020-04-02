@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const users = require('./routes/users');
+const venduster = require('./routes/venduster');
 const mongoose = require('./config/database'); // database configuration
 var jwt = require('jsonwebtoken');
 const cors = require('cors');
@@ -30,7 +31,7 @@ app.get('/', function(req, res){
 app.use('/users', users);
 
 // private route
-app.use('/venduster', validateUser);
+app.use('/venduster', validateUser, venduster);
 
 
 app.get('/favicon.ico', function(req, res){
