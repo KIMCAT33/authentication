@@ -19,7 +19,7 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 const port = process.env.PORT || 3000;
 
