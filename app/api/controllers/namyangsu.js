@@ -23,18 +23,19 @@ module.exports = {
     },
 
     getById: function (req, res, next) {
-        namyangsuModel.findById(req.params.phone, function(err, userInfo){
+        const query = {phone: req.body.phone};
+        namyangsuModel.findOne(query, function(err, userInfo){
             if(err){
                 next(err);
             }else{
                 res.json({status:"Success", message: "사용자를 찾았습니다.", data: {user: userInfo}});
             }
-        });
+        }); 
     },
     
 
     updateById: function (req, res, next) {
-        const query = {phone: req.body.phone};
+        const query = {phone: req.post.phone};
         namyangsuModel.findOne(query, function(err, userInfo){
             if(err){
                 next(err);
