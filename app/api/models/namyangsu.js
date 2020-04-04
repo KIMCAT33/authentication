@@ -23,6 +23,16 @@ const Namyangsu = new Schema({
         type:Number,
         trim: true,
         default: 0,
+    },
+    randomNumber : {
+        type: Number,
+        trim: true,
+        default : 10000
+    },
+    date : {
+        type: Date,
+        trim : true,
+        default : Date.now
     }
 });
 

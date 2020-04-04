@@ -13,7 +13,7 @@ module.exports = {
                 next(err);
             }else{
                 for(let user of users){
-                    usersList.push({phone: user.phone, name: user.name, birth: user.birth, count: user.count});
+                    usersList.push({phone: user.phone, name: user.name, birth: user.birth, count: user.count, randomNumber: user.randomNumber, data: user.data});
                 }
                 res.json({status: "success", message: "사용자 목록을 출력하였습니다.", data: {users: usersList}});
             }
