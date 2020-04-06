@@ -32,7 +32,11 @@ const Namyangsu = new Schema({
     date : {
         type: Date,
         trim : true,
-        default : Date.now
+        default : new Date()
+    },
+    flag : {
+        type: String,
+        trim: true
     }
 });
 
