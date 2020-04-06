@@ -18,8 +18,8 @@ module.exports = {
                 next(err);
             } else {
                 if (bcrypt.compareSync(req.body.password, userInfo.password)) {
-                    const token = jwt.sign({ id: userInfo._id }, req.app.get('secretKey'));//, { expiresIn: '1h' });
-                    res.json({ status: "success", message: "사용자를 찾았습니다.", data: { user: userInfo, token: token } });
+                    const token = jwt.sign({ id: userInfo._id }, req.app.get('secretKey') ,{ expiresIn: '1h' });
+                    res.json({ status: "success", message: "토큰 발행, 로그인 성공", data: { user: userInfo, token: token } });
                 } else {
                     res.json({ status: "error", message: "옳바르지 않은 아이디 및 비밀번호입니다.", data: null });
                 }
