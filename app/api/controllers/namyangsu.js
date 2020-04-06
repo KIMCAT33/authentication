@@ -35,7 +35,7 @@ module.exports = {
     
 
     updateById: function (req, res, next) {
-        const query = {phone: req.post.phone};
+        const query = {phone: req.body.phone};
         namyangsuModel.findOne(query, function(err, userInfo){
             if(err){
                 next(err);

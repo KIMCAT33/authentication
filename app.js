@@ -31,34 +31,14 @@ app.get('/', function (req, res) {
 app.use('/users', users);
 
 // private route
-app.use('/venduster', verifyToekn, venduster);
+app.use('/venduster', validateUser, venduster);
 
 
 app.get('/favicon.ico', function (req, res) {
     res.sendStatus(204);
 });
 
-function verifyToekn(req, res, next) {
-    try {
-        req.decoded = jwt.verify(req.headers.authorization, req.app.get('secretKey'))
-        return next();
-    } catch (err) {
-        if (err.name === 'TokenExpiredError') {
-            return res.status(419).json({
-                resultCode: 419,
-                meesage: "토큰 만료"
-            });
-        }
 
-        return res.status(401).json({
-            resultCode: 401,
-            message: "토큰이 유효하지 않습니다."
-        })
-    }
-
-}
-
-/*
 function validateUser(req, res, next) {
     jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function (err, decoded) {
         if (err) {
@@ -69,7 +49,7 @@ function validateUser(req, res, next) {
             next();
         }
     });
-}*/
+}
 
 // 404 에러 처리
 app.use(function (req, res, next) {
