@@ -17,7 +17,7 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 
 
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

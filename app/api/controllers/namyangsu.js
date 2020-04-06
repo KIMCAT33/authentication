@@ -42,11 +42,8 @@ module.exports = {
             }else{
                 var updatedCount = userInfo.count + 1;
                 namyangsuModel.findOneAndUpdate(query, {count: updatedCount }, function(err, userInfo){
-                    if(err){
-                        next(err);
-                    }else{
                         res.json({status:"Success", message: "마스크 보급을 완료하였습니다.", data:null});
-                    }
+        
                 });
             }
         })
