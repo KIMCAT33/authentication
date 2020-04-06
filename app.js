@@ -41,6 +41,7 @@ app.get('/favicon.ico', function (req, res) {
 
 
 function verifyToken(req, res, next) {
+    console.log(req);
     try {
         req.decoded = jwt.verify(req.headers.authorization, req.app.get('secretKey'))
         return next();
