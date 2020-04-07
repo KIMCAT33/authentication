@@ -45,7 +45,7 @@ module.exports = {
                     res.json({status: "fail", message:"마스크 지급 회수를 초과하였습니다.", data:userInfo});
                 } else{
                     var updatedCount = userInfo.count + 1;
-                    namyangsuModel.findOneAndUpdate(query, {count: updatedCount}, function(err, userInfo){
+                    namyangsuModel.findOneAndUpdate(query, {count: updatedCount, randomNumber: 10000}, function(err, userInfo){
                             res.json({status:"Success", message: "마스크 보급을 완료하였습니다.", data:userInfo});
                         });
                 }                
