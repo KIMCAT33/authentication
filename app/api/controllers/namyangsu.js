@@ -41,7 +41,7 @@ module.exports = {
             if(err){
                 next(err);
             }else{
-                if(userInfo.count > 1){
+                if(userInfo.count >= 1){
                     res.json({status: "fail", message:"마스크 지급 회수를 초과하였습니다.", data:userInfo});
                 } else{
                     var updatedCount = userInfo.count + 1;
