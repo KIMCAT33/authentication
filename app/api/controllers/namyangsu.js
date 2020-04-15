@@ -55,13 +55,23 @@ module.exports = {
     },   
 
   create: function(req, res, next){
-    namyangsuModel.create({phone: req.body.phone, name: req.body.name, birth: req.body.birth}, function(err, result){
+    const query = {phone : req.body.phone};
+    namyangsuModel.findOne(query, function(err, userInfo){
         if(err){
             next(err);
         }
-        else{
-            res.json({status: "success", message: "사용자가 등록되었습니다.", data:null});
+        if(userInfo!=undefined){
+            res.json({status:"fail", message:"이미 등록된 사용자입니다.", data: userInfo});
+        }else{
+            namyangsuModel.create({phone: req.body.phone, name: req.body.name, birth: req.body.birth}, function(err, result){
+                if(err){
+                    next(err);
+                }
+                else{
+                    res.json({status: "success", message: "사용자가 등록되었습니다.", data:null});
+                }
+            });
         }
-    });
+    })
   },
 }
