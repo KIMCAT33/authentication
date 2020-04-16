@@ -28,7 +28,7 @@ module.exports = {
             if(err){
                 next(err);
             }else{
-                res.json({status:"Success", message: "사용자를 찾았습니다.", data: {user: userInfo}});
+                res.json({status:"success", message: "사용자를 찾았습니다.", data: {user: userInfo}});
             }
         }); 
     },
@@ -46,7 +46,7 @@ module.exports = {
                 } else{
                     var updatedCount = userInfo.count + 1;
                     namyangsuModel.findOneAndUpdate(query, {count: updatedCount, randomNumber: 10000}, function(err, userInfo){
-                            res.json({status:"Success", message: "마스크 보급을 완료하였습니다.", data:userInfo});
+                            res.json({status:"success", message: "마스크 보급을 완료하였습니다.", data:userInfo});
                         });
                 }                
             }
