@@ -79,4 +79,4 @@ app.use(function (err, req, res, next) {
 });
 
 
-app.listen(port, function () { console.log(`Node server listening on port ${port}`); });
+app.listen(port,'0.0.0.0', function () { console.log(`Node server listening on port ${port}`); });
